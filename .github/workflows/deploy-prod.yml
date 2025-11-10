@@ -20,6 +20,6 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.DEV_SERVER_HOST }} >> ~/.ssh/known_hosts
 
-      - name: 🚀 Deploy code to dev server
+      - name: 🚀 Deploy code to production server
         run: |
-          ssh -i ~/.ssh/id_ed25519 ${{ secrets.DEV_SERVER_USER }}@${{ secrets.DEV_SERVER_HOST }} "cd public_html/MrPlentl.com_DEV && git pull origin master"
+          ssh -i ~/.ssh/id_ed25519 ${{ secrets.DEV_SERVER_USER }}@${{ secrets.DEV_SERVER_HOST }} "cd public_html/MrPlentl.com && git pull origin master"
