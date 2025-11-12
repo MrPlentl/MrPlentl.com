@@ -66,6 +66,12 @@
     .bullet-list li {
       margin-bottom: 6px;
     }
+    .first-name, .last-name {
+        white-space: nowrap; /* Prevents breaking inside the name */
+    }
+    .first-name {
+        padding-right: 1rem;
+    }
     @media (max-width: 768px) {
       .header-name {
         font-size: 2.2rem;
@@ -84,10 +90,11 @@
   <div class="container py-4 py-md-5">
     <!-- Header -->
     <header class="text-center mb-4">
-      <h1 class="header-name mb-0">
-        <span>B R A N D O N</span>&nbsp;&nbsp;<span class="last-name"> P L E N T L</span>
-      </h1>
-      <p class="fs-5 text-muted fw-light">Senior Full Stack Engineer</p>
+    <h1 class="header-name mb-0 d-block">
+        <span class="first-name d-block d-md-inline">B R A N D O N</span>
+        <span class="last-name d-block d-md-inline">P L E N T L</span>
+    </h1>
+    <p class="fs-5 text-muted fw-light">Senior Full Stack Engineer</p>
     </header>
 
     <!-- Contact Info -->
