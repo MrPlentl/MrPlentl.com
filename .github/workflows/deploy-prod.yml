@@ -23,3 +23,26 @@ jobs:
       - name: Deploy code to production server
         run: |
           ssh -i ~/.ssh/id_ed25519 ${{ secrets.DEPLOY_SERVER_USER }}@${{ secrets.DEPLOY_SERVER_HOST }} "cd public_html/MrPlentl.com && git pull origin master"
+
+  sync_branches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+
+      - name: Merge master -> staging -> dev
+        run: |
+          git checkout staging
+          git merge origin/master --no-edit || true
+          git push origin staging
+
+          git checkout dev
+          git merge origin/master --no-edit || true
+          git push origin dev
