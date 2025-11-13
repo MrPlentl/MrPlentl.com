@@ -1,6 +1,5 @@
 <?php
 // This is a temporary Home page throw together real quick until I can get my main site rolled out!
-// Minor change
 ?>
 
 <!DOCTYPE html>
